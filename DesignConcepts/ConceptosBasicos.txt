@@ -7,3 +7,5 @@ El elemento principal de la BBDD es la tabla que contiene filas (registros, reco
 Una tabla no pouede tener filas duplicadas, por lo cual necesita de un campo que sea PK (Primary Key)
 
 ¿Qué es una PK? Es un campo o grupo de campos que impoiden que se dupliquen los registros de una tabla. En una tabla solamente puede haber una PK y los campos que participan en la PK tendran una llave al principio, ademas un campo POK no admite valores NULL, NULL no signifiac que sea una cadena vacia, ni un valor por defecto cero, significa desconocido y hay que tener mucho cuidado con los valores null y evitarlos en medida de lo posible,porque la evaluar una expresion donde haya un valor NULL toda la expresion se puede evaluar como NULL
+
+UQ (Unique): No puede haber mas de un Primary Key en una tabla pero si varios campos Unique (UQ) que ademas si admite NULL en al menos un registro.
