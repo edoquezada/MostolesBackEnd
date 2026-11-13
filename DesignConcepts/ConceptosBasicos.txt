@@ -17,3 +17,8 @@ En un sistema de gestión de BBDD relacionales, las tablas tienen/deben que esta
 ¿Comó se establece las relaciones entre las tablas?: A través de las relaciones de clave externos o FK (Foreing Key)
 
 ¿Qué es una FK (Foreing Key)?: Es un campo que hace de una tabla que hace referencia a un campo de otra tabla que es PK en dicha tabla, el nombre de los campos no tiene que ser igual pero si el tipo de datos.
+
+¿Como se crean las relaciones entre las tablas y el clinete de MySQL, es decir, en MySQL Workbench?
+independientemente de la cantidad de tablas que tengas, las relaciones se van creando de dos tablas y, entre esas dos tablas que vas a relacionar, hay que seleccionar cual es la tabla hijo y cual la padre. La padre no depende de la tabla hijo, por ejemplo, el caso de departamentos y empleados, puede exixtir el departamento sin empleados por lo tanto la tabla padre es departamentos. Tened en cuenta que esta relación puede cambiar al reacionar con otra tabla, en cualquier caso una vez determinada la tabla hijo nos ubicamos en la tabla hijo para crear la relacion y podemos crear un campo en la tabla hijo que sera la FK o aceptar el campo que se crea por defecto
+
+por lo general las relaciones pueden ser: de 1 a muchos, por ejemplo, en un departamento muchos empleados, o tambine ser de muchos a muchos o de uno a uno
