@@ -9,3 +9,11 @@ Una tabla no pouede tener filas duplicadas, por lo cual necesita de un campo que
 ¿Qué es una PK? Es un campo o grupo de campos que impoiden que se dupliquen los registros de una tabla. En una tabla solamente puede haber una PK y los campos que participan en la PK tendran una llave al principio, ademas un campo POK no admite valores NULL, NULL no signifiac que sea una cadena vacia, ni un valor por defecto cero, significa desconocido y hay que tener mucho cuidado con los valores null y evitarlos en medida de lo posible,porque la evaluar una expresion donde haya un valor NULL toda la expresion se puede evaluar como NULL
 
 UQ (Unique): No puede haber mas de un Primary Key en una tabla pero si varios campos Unique (UQ) que ademas si admite NULL en al menos un registro.
+
+-------------------------------->
+
+En un sistema de gestión de BBDD relacionales, las tablas tienen/deben que estar relacionadas. 
+
+¿Comó se establece las relaciones entre las tablas?: A través de las relaciones de clave externos o FK (Foreing Key)
+
+¿Qué es una FK (Foreing Key)?: Es un campo que hace de una tabla que hace referencia a un campo de otra tabla que es PK en dicha tabla, el nombre de los campos no tiene que ser igual pero si el tipo de datos.
