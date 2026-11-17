@@ -1,4 +1,4 @@
-empleados/*La sentencia u orden siguiente pone en uso la base de datos o esquema world
+/*La sentencia u orden siguiente pone en uso la base de datos o esquema world
 para realizar consultas a sus tablas*/
 -- Esto es un comentario de linea
 
