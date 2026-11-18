@@ -48,8 +48,46 @@ select Name `País`, Continent `Continente` from country where Continent like '%
 -- recuperar todos los paises donde el continente empiece con la letra "A"
 select Name `País`, Continent `Continente` from country where Continent like 'Af%';
 
+/*NOTA IMPORTANTE
+EN una sentencia en SQL donde se utilicen funciones de agregado (COUNT(), MAX(), MIN(), AVG(), SUM(), etc) los campos que no esten afectados
+por una funcion de agregado hay que incluirlos en la clausula GROUP BY y, sino se utilizan funciones de agregado, las clausulas WHERE y HAVING
+se pueden usar indistintamente, es decir, son intercambiables, pero si se agrupa para filtrar o evaluar condicion antes de GROUP BY se utiliza WHERE
+y para operar sobre los registros agrupados se utiliza HAVING
+*/
+SELECT Region, COUNT(*) AS `Total de Paises`
+FROM country
+GROUP BY Region
+HAVING COUNT(*) > 10
+ORDER BY `Total de Paises` DESC;
 
+-- Ejercicio 1 Miercoles 18 noviembre
+-- Recuperar el total de habitantes que hay por continente y region
+-- excluir del resultado aquellos paises que tengan una poblacion inferior al millon de habitantes o que no hayan obtenido su independecia todavia
+-- ordenar el resultado por el total de poblacion, mostrando las regiones que tienen menos habitantes primero
+-- y solo mostrar los registros con más de 5 millones de habitantes
 
+SELECT 
+    Continent, 
+    Region, 
+    SUM(Population) AS `Total de Habitantes`
+FROM country
+WHERE Population >= 1000000 
+  AND IndepYear IS NOT NULL
+GROUP BY Continent, Region
+HAVING SUM(Population) > 5000000
+ORDER BY `Total de Habitantes` ASC;
+
+-- Version Belen (version buena)
+SELECT 
+    Continent, 
+    Region, 
+    SUM(Population) AS `Total población`
+FROM country
+WHERE Population >= 1000000 
+  AND IndepYear IS NOT NULL
+GROUP BY Continent, Region
+HAVING `Total población` > 5000000
+ORDER BY `Total población` ASC;
 
 
 
