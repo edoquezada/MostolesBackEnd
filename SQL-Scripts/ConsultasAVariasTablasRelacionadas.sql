@@ -13,7 +13,7 @@ select pais.Code, pais.Name, idioma.Language, idioma.IsOfficial
 from country pais join countrylanguage idioma on pais.Code = idioma.CountryCode and idioma.IsOfficial = "T";
 
 -- Ejercicio 3: Recuperar la ciudad mas poblada y el nombre del pais donde se encuentra
-select city.Name, country.Name, city.Population
+select city.Name `Ciudad`, country.Name `País`, city.Population
 from country join city on country.Code = city.CountryCode where city.Population = (select max(Population) from city);
 
 -- Ejercicio 4: modificar ejercicio 2 para que solamente muestre resultados para españa y todos los idiomas, no solo los oficiales
