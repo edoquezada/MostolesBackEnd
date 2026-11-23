@@ -231,6 +231,20 @@ where prod1.precio >= (
 )
 order by prod1.precio asc;
 
+-- Solucion con EXISTS (Elias)
+select nombre , precio, id_fabricante
+from producto prod
+where exists (
+	select *
+    from producto
+    where prod.precio >= (
+		select avg(precio)
+        from producto p 
+        where p.id_fabricante = prod.id_fabricante
+    )
+)
+order by prod.precio asc;
+
 
 
 
