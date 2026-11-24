@@ -245,6 +245,26 @@ where exists (
 )
 order by prod.precio asc;
 
+/*
+OTRO EJEMPLO DE USO DEL OPERADOR EXISTS EN LA SUBCONSULTA
+Utilizando la BBDD ejemplo_exists, se pide lo siguiente:
+
+Qué tipo de tienda esta presente en una o mas ciudades
+*/
+
+use ejemplo_exists;
+
+select store_type
+from stores
+where exists (
+	select *
+	from cities_stores
+	where cities_stores.store_type = stores.store_type
+); 
+
+table cities;
+table stores;
+table cities_stores;
 
 
 
