@@ -61,9 +61,10 @@ table country ;
 * menos de 4 lenguas oficiales 
 */
 
-drop table if exists t4;
+use world;
 
 /*1*/
+drop table if exists t4;
 create temporary table t4
 select Code, Name, Continent, Region, SurfaceArea, IndepYear, Population from country;
 
@@ -75,7 +76,8 @@ table t4;
 
 /*2*/
 drop table if exists t5;
-create temporary table t5 as select * from countrylanguage;
+create temporary table t5 select * from countrylanguage;
+alter table t5 add constraint primary key (CountryCode, Language);
 table t5;
 /**********************************************/
 
@@ -83,6 +85,7 @@ table t5;
 /*3*/
 start transaction;
 delete from t4 where Code in (select Code from t6);
+-- delete from t4 join t6 as dt on t4.Code = dt.Code;
 table t4;
 rollback;
 commit;
@@ -98,7 +101,8 @@ from country c
 left join countrylanguage cl
 on c.Code = cl.CountryCode and cl.IsOfficial = 'T'
 group by c.Code, c.Name
-having count(cl.Language) < 4;
+having count(cl.Language) < 4
+order by c.Code asc;
 
 table t6;
 /**********************************************/
